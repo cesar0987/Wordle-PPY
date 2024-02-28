@@ -50,6 +50,9 @@ body {
 
   .incorrect {
     background-color: #ff8e8e;  /* Cambia el color cuando la letra es incorrecta */
+  }
+  .parcialCorrect{
+    background-color: #e4fd06;  /* Cambia el color cuando la letra es incorrecta */
   } 
   button:active {
       transform: scale(0.95);

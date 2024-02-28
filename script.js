@@ -36,14 +36,10 @@ function checkGuess() {
         alert("Perdiste");
         return;
     }
-    if (correctLetters === 5) {
-        alert("Ganaste");
-        return;
-    }
+    verification(correctLetters);
     let word = guess_word.value.toUpperCase();
     let arrayWord = word.split('');
     let arrayDictionaryWord = (wordAPI).split('');
-    let resultado=[]
     if (word.length !== 5) {
         alert("La palabra debe tener 5 letras");
         return;
@@ -55,7 +51,12 @@ console.log(arrayWord);
         if (arrayWord[i]===arrayDictionaryWord[i]) {
             letterContainer.classList.add("correct");
             correctLetters++;
-        } else {
+        }
+        else if(arrayDictionaryWord.includes(arrayWord[i])){
+            letterContainer.classList.add("parcialCorrect");
+
+        }
+        else {
             letterContainer.classList.add("incorrect");
         }
         letterContainer.innerHTML = arrayWord[i];
@@ -63,5 +64,11 @@ console.log(arrayWord);
     }
     letterContainers.innerHTML += "<br>";
     intentos--;
-    console.log(resultado);
+    verification(correctLetters);
+}
+function verification(correctLetters){
+    if (correctLetters === 5) {
+        alert("Ganaste");
+        return;
+    }
 }
