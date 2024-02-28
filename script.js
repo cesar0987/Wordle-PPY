@@ -23,6 +23,7 @@ const button = document.getElementById("guess-button");
 const letterContainers = document.getElementById("correct-letters");
 const buttonReset = document.getElementById("reset-button");
 const buttonGiveUp = document.getElementById("give-up-button");
+let correctLetters = 0;
 buttonReset.addEventListener("click", () => {
     location.reload();
 });
@@ -33,6 +34,10 @@ button.addEventListener("click", checkGuess);
 function checkGuess() {
     if (intentos === 0) {
         alert("Perdiste");
+        return;
+    }
+    if (correctLetters === 5) {
+        alert("Ganaste");
         return;
     }
     let word = guess_word.value.toUpperCase();
@@ -49,6 +54,7 @@ console.log(arrayWord);
         letterContainer.classList.add("letter-container");
         if (arrayWord[i]===arrayDictionaryWord[i]) {
             letterContainer.classList.add("correct");
+            correctLetters++;
         } else {
             letterContainer.classList.add("incorrect");
         }
