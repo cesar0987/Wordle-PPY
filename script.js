@@ -26,12 +26,17 @@ const winningMessage = document.getElementById("winning-message");
 const losingMessage = document.getElementById("losing-message");
 const highScoreDisplay = document.getElementById("boardScore"); 
 let correctLetters = 0;
-let saveScore = 0;
+let saveScore = JSON.parse(localStorage.getItem("highScore"));
 let highScore = JSON.parse(localStorage.getItem("highScore"));
-if (highScore === null || saveScore > highScore) {
-    localStorage.setItem("highScore", saveScore);
-    highScore = saveScore;
+if (highScore === null) {
+    if (saveScore > highScore) {
+        localStorage.setItem("highScore", saveScore);
+    }
 }
+else {
+    localStorage.setItem("highScore",saveScore);
+}
+console.log(highScore);
 highScoreDisplay.innerHTML = "High Score: " + highScore;
 
 
@@ -87,6 +92,8 @@ function checkGuess() {
 function verification(correctLetters){
     if (correctLetters === 5) {
         saveScore++;
+        console.log(saveScore)
+        localStorage.setItem("highScore",saveScore);
         winningMessage.style.display = "block";
         return;
     }
