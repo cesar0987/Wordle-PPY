@@ -37,7 +37,7 @@ else {
     localStorage.setItem("highScore",saveScore);
 }
 console.log(highScore);
-
+highScoreDisplay.innerHTML = "Puntaje: " + saveScore ;
 
 button.addEventListener("click", checkGuess);
 guess_word.addEventListener("keypress",(e)=>{
@@ -93,7 +93,6 @@ function verification(correctLetters){
         saveScore++;
         console.log(saveScore)
         localStorage.setItem("highScore",saveScore);
-        highScoreDisplay.innerHTML = "High Score: " + saveScore ;
         winningMessage.style.display = "block";
         return;
     }
