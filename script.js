@@ -24,7 +24,17 @@ const buttonReset = document.getElementById("reset-button");
 const buttonGiveUp = document.getElementById("give-up-button");
 const winningMessage = document.getElementById("winning-message");
 const losingMessage = document.getElementById("losing-message");
+const highScoreDisplay = document.getElementById("boardScore"); 
 let correctLetters = 0;
+let saveScore = 0;
+let highScore = JSON.parse(localStorage.getItem("highScore"));
+if (highScore === null || saveScore > highScore) {
+    localStorage.setItem("highScore", saveScore);
+    highScore = saveScore;
+}
+highScoreDisplay.innerHTML = "High Score: " + highScore;
+
+
 button.addEventListener("click", checkGuess);
 guess_word.addEventListener("keypress",(e)=>{
     if (e.key === "Enter") {
@@ -41,7 +51,6 @@ buttonGiveUp.addEventListener("click", () => {
 button.addEventListener("click", checkGuess);
 function checkGuess() {
     if (intentos === 0) {
-        alert("Perdiste");
         losingMessage.style.display = "block";
         return;
     }
@@ -49,7 +58,11 @@ function checkGuess() {
     let word = guess_word.value.toUpperCase();
     let arrayWord = word.split('');
     let arrayDictionaryWord = (wordAPI).split('');
-console.log(arrayWord);
+    if (word.length !== 5) {
+        alert("La palabra debe tener 5 letras");
+        return;
+    }
+    console.log(arrayWord);
     for (let i=0; i<arrayDictionaryWord.length; i++) {
         const letterContainer = document.createElement("div");
         letterContainer.classList.add("letter-container");
@@ -73,7 +86,7 @@ console.log(arrayWord);
 }
 function verification(correctLetters){
     if (correctLetters === 5) {
-        alert("Ganaste");
+        saveScore++;
         winningMessage.style.display = "block";
         return;
     }

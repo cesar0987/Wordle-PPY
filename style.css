@@ -88,6 +88,12 @@ body {
       font-size: 20px;
       color: red;
   }
+  #boardScore{
+      top:10px;
+      left: 10px ;
+      position: fixed;
+      font-size: 20px;
+  }
 
 @media screen and (max-width: 600px){
     #guess-input {
@@ -106,6 +112,12 @@ body {
         right: 10px ;
         position: fixed;
     }
+    #boardScore{
+      top:10px;
+      left: 10px ;
+      position: fixed;
+      font-size: 20px;
+  }
     .row{
         width: 100%;
         margin-top: 30px;
