@@ -49,10 +49,6 @@ function checkGuess() {
     let word = guess_word.value.toUpperCase();
     let arrayWord = word.split('');
     let arrayDictionaryWord = (wordAPI).split('');
-    if (word.length !== 5) {
-        alert("La palabra debe tener 5 letras");
-        return;
-    }
 console.log(arrayWord);
     for (let i=0; i<arrayDictionaryWord.length; i++) {
         const letterContainer = document.createElement("div");
