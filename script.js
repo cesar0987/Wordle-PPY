@@ -75,6 +75,7 @@ console.log(arrayWord);
 function verification(correctLetters){
     if (correctLetters === 5) {
         alert("Ganaste");
+        letterContainers.appendChild("<h1>GANASTE!😀</h1>")
         return;
     }
 }
