@@ -22,6 +22,8 @@ const button = document.getElementById("guess-button");
 const letterContainers = document.getElementById("correct-letters");
 const buttonReset = document.getElementById("reset-button");
 const buttonGiveUp = document.getElementById("give-up-button");
+const winningMessage = document.getElementById("winning-message");
+const losingMessage = document.getElementById("losing-message");
 let correctLetters = 0;
 button.addEventListener("click", checkGuess);
 guess_word.addEventListener("keypress",(e)=>{
@@ -40,6 +42,7 @@ button.addEventListener("click", checkGuess);
 function checkGuess() {
     if (intentos === 0) {
         alert("Perdiste");
+        losingMessage.style.display = "block";
         return;
     }
     verification(correctLetters);
@@ -75,7 +78,7 @@ console.log(arrayWord);
 function verification(correctLetters){
     if (correctLetters === 5) {
         alert("Ganaste");
-        letterContainers.appendChild("<h1>GANASTE!😀</h1>")
+        winningMessage.style.display = "block";
         return;
     }
 }
