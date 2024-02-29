@@ -12,7 +12,6 @@ fetch(apiUrl)
   .then(data => {
     wordAPI = data[0];
     console.log('Palabra generada:', wordAPI);
-    console.log(wordAPI)
   })
   .catch(error => {
     console.error('Error al obtener la palabra:', error);
@@ -24,6 +23,12 @@ const letterContainers = document.getElementById("correct-letters");
 const buttonReset = document.getElementById("reset-button");
 const buttonGiveUp = document.getElementById("give-up-button");
 let correctLetters = 0;
+guess_word.addEventListener("keypress",(e)=>{
+    if (e.key === "Enter") {
+        checkGuess();
+    }
+}    
+    )
 buttonReset.addEventListener("click", () => {
     location.reload();
 });
