@@ -23,6 +23,7 @@ const letterContainers = document.getElementById("correct-letters");
 const buttonReset = document.getElementById("reset-button");
 const buttonGiveUp = document.getElementById("give-up-button");
 let correctLetters = 0;
+button.addEventListener("click", checkGuess);
 guess_word.addEventListener("keypress",(e)=>{
     if (e.key === "Enter") {
         checkGuess();
