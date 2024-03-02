@@ -22,7 +22,7 @@
       width: 250px;
       border: 1px solid #ccc;
     }
-      
+    #help-button, 
     #guess-button,
     #reset-button,
     #give-up-button{ 
@@ -108,7 +108,7 @@
       #guess-input {
           width: 100%;
       }
-      
+      #help-button,
       #guess-button,
       #reset-button{
           margin-top: 10px;

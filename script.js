@@ -7,7 +7,7 @@ const buttonGiveUp = document.getElementById("give-up-button");
 const winningMessage = document.getElementById("winning-message");
 const losingMessage = document.getElementById("losing-message");
 const highScoreDisplay = document.getElementById("boardScore"); 
-const pistas = document.getElementById("word");
+const buttonHelp = document.getElementById("help-button");
 let wordAPI = 0;
 let pista=0;
 
@@ -34,7 +34,9 @@ fetch(apiUrl)
     })
     .then(dictionaryData=> {
         pista = dictionaryData[0].meanings[0].definitions[0].definition;
-        pistas.innerHTML = "HELPS: " + pista;
+        buttonHelp.addEventListener("click", () => {
+            alert(pista);
+        });
         console.log(dictionaryData[0].meanings[0].definitions[0].definition);
     })
     .catch(error => {
@@ -72,7 +74,7 @@ buttonReset.addEventListener("click", () => {
     location.reload();
 });
 buttonGiveUp.addEventListener("click", () => { 
-    alert("La palabra era: " + wordAPI);
+    alert("The word is: " + wordAPI);
     location.reload();
 });
 button.addEventListener("click", checkGuess);
@@ -86,7 +88,7 @@ function checkGuess() {
     let arrayWord = word.split('');
     let arrayDictionaryWord = (wordAPI).split('');
     if (word.length !== 5) {
-        alert("La palabra debe tener 5 letras");
+        alert("The word must have 5 letters");
         return;
     }
     console.log(arrayWord);
