@@ -91,6 +91,18 @@
         position: relative;
         font-size: 20px;
     }
+    #word{
+        display: block;
+        text-align: center;
+        box-sizing: content-box;
+    }
+    #wordAlert{
+        
+        display: block;
+        text-align: center;
+        font-size: 20px;
+
+    }
   
   @media screen and (max-width: 600px){
       #guess-input {
